@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHUPV.Database.WeatherInfo", "SHUPV.Database.WeatherInfo\SHUPV.Database.WeatherInfo.csproj", "{BDC5D564-0D09-4B61-8C18-BDDFF08A19C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWeatherDatabase", "TestWeatherDatabase\TestWeatherDatabase.csproj", "{1CB5458E-B63F-4EB1-9151-0E61D6105993}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8BC008BB-D527-470F-A88D-BF7D5751F8C2} = {8BC008BB-D527-470F-A88D-BF7D5751F8C2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWeatherInfo", "TestWeatherInfo\TestWeatherInfo.csproj", "{DA50F457-B231-4B23-A9FB-61E71E87887E}"
 EndProject
