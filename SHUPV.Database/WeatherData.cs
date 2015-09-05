@@ -1,8 +1,8 @@
 ﻿//******************************************************************************************
 //
-// 文件名(File Name): WeatherInfo.cs
+// 文件名(File Name): WeatherData.cs
 // 
-// 描述(Description): 包含类SHUPV.Database.WeatherInfo的定义
+// 描述(Description): 包含类SHUPV.Database.WeatherData的定义
 //
 // 引用(Using): SHUPV.Database.Connection.dll
 //
@@ -26,7 +26,7 @@ namespace SHUPV.Database
 	/// <summary>
 	/// 天气信息数据接口,访问数据库并提供用户索要的数据
 	/// </summary>
-	public class WeatherInfo
+	public class WeatherData
 	{
 		/// <summary>
 		/// 纬度
@@ -61,11 +61,12 @@ namespace SHUPV.Database
 		/// </summary>
 		/// <param name="latitude">该地的纬度</param>
 		/// <param name="longitude">该地的经度</param>
-		public WeatherInfo(double latitude, double longitude)
+		public WeatherData(double latitude, double longitude)
 		{
-			_latitude = latitude;
-			_longitude = longitude;
-			_sqlCon = WeatherDatabase.GetSqlConnection();
+			_latitude = latitude;												//初始化纬度
+			_longitude = longitude;												//初始化经度
+			_sqlCon = WeatherDatabase.GetSqlConnection();						//获取数据库连接
+			_isEmpty = true;													//数据缓存为空
 		}
 
 		/// <summary>
@@ -73,7 +74,8 @@ namespace SHUPV.Database
 		/// </summary>
 		public void Open()
 		{
-
+			//打开数据库,将指定位置的所有有关数据全部缓存到_dataSet中,若成功,_isEmpty置假,否则抛出相应异常
+#warning 未完成:WeatherData.Open()
 		}
 
 		/// <summary>
@@ -85,7 +87,8 @@ namespace SHUPV.Database
 		public List<double> GetData(string tableID, string lineName)
 		{
 			List<double> result = new List<double>();
-
+			//从_dataSet中取出用户想要的数据,若成功,则返回数据,否则抛出相应异常
+#warning 未完成:WeatherData.Open()
 			return result;
 		}
 	}

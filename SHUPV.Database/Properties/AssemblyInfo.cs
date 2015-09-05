@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("SHUPV.Database.WeatherInfo")]
+[assembly: AssemblyTitle("SHUPV.Database")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SHUPV")]
-[assembly: AssemblyProduct("SHUPV.Database.WeatherInfo")]
+[assembly: AssemblyProduct("SHUPV.Database")]
 [assembly: AssemblyCopyright("Copyright © SHUPV 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
