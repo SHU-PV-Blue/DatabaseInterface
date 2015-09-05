@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHUPV.Database.WeatherInfo", "SHUPV.Database.WeatherInfo\SHUPV.Database.WeatherInfo.csproj", "{BDC5D564-0D09-4B61-8C18-BDDFF08A19C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWeatherInfo", "TestWeatherInfo\TestWeatherInfo.csproj", "{DA50F457-B231-4B23-A9FB-61E71E87887E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{BDC5D564-0D09-4B61-8C18-BDDFF08A19C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDC5D564-0D09-4B61-8C18-BDDFF08A19C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDC5D564-0D09-4B61-8C18-BDDFF08A19C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA50F457-B231-4B23-A9FB-61E71E87887E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA50F457-B231-4B23-A9FB-61E71E87887E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA50F457-B231-4B23-A9FB-61E71E87887E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA50F457-B231-4B23-A9FB-61E71E87887E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
