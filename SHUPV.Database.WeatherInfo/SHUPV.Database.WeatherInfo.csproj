@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SHUPV.Database.WeatherDatabase">
-      <HintPath>..\SHUPV.Database.WeatherDatabase\bin\Debug\SHUPV.Database.WeatherDatabase.dll</HintPath>
+    <Reference Include="SHUPV.Database.Connection">
+      <HintPath>lib\SHUPV.Database.Connection.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
