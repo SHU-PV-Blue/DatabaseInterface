@@ -65,7 +65,7 @@ namespace SHUPV.Database
 		{
 			_latitude = latitude;												//初始化纬度
 			_longitude = longitude;												//初始化经度
-			_sqlCon = WeatherDatabase.GetSqlConnection();						//获取数据库连接
+			_sqlCon = WeatherDatabase.GetSqlConnection();					//获取数据库连接
 			_isEmpty = true;													//数据缓存为空
 		}
 
@@ -75,7 +75,28 @@ namespace SHUPV.Database
 		public void Open()
 		{
 			//打开数据库,将指定位置的所有有关数据全部缓存到_dataSet中,若成功,_isEmpty置假,否则抛出相应异常
-#warning 未完成:WeatherData.Open()
+            _isEmpty = false;
+            string sqlString = "select * from Lines where Lat =" + _latitude.ToString() + "and Lon = " + _longitude.ToString();
+            _dataSet = new DataSet();
+            try
+            {
+                _sqlCon.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(sqlString, _sqlCon);
+
+                sda.Fill(_dataSet, "tempTable");
+                if (_dataSet.Tables[0].Rows.Count > 0)
+                    _isEmpty = false;
+                else
+                    _isEmpty = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally{
+                _sqlCon.Close();
+                _sqlCon.Dispose();
+            }
 		}
 
 		/// <summary>
@@ -86,10 +107,21 @@ namespace SHUPV.Database
 		/// <returns>12个浮点数,对应12个月,若为double.NaN说明该月无记录</returns>
 		public List<double> GetData(string tableID, string lineName)
 		{
+            //从_dataSet中取出用户想要的数据,若成功,则返回数据,否则抛出相应异常
 			List<double> result = new List<double>();
-			//从_dataSet中取出用户想要的数据,若成功,则返回数据,否则抛出相应异常
-#warning 未完成:WeatherData.Open()
-			return result;
+
+            DataRow[] dr = _dataSet.Tables["tempTable"].Select("TableID ='" + tableID + "' and LineName = '" + lineName + "'");
+            int j = _dataSet.Tables["tempTable"].Columns.Count;
+            
+            for (int i = j - 12; i < j; i++)
+            {
+                if (dr[0][i] == DBNull.Value)
+                    result.Add(Double.NaN);
+                else
+                    result.Add(Convert.ToDouble(dr[0][i]));
+            }
+
+            return result;
 		}
 	}
 }
