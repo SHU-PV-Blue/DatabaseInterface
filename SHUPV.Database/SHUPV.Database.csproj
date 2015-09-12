@@ -33,6 +33,9 @@
     <Reference Include="SHUPV.Database.Connection">
       <HintPath>lib\SHUPV.Database.Connection.dll</HintPath>
     </Reference>
+    <Reference Include="SHUPV.Database.Core">
+      <HintPath>..\SHUPV.Database.Core\bin\Debug\SHUPV.Database.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

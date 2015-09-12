@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace SHUPV.Database.Core
 {
@@ -25,6 +26,20 @@ namespace SHUPV.Database.Core
 	/// </summary>
 	public class DatabaseCore
 	{
+		/// <summary>
+		/// 数据库连接，仅是对外部给的数据库连接的引用，不负责维护
+		/// </summary>
+		SqlConnection _sqlCon;
+
+		/// <summary>
+		/// 构造函数
+		/// </summary>
+		/// <param name="sqlCon">已打开的数据库连接</param>
+		public DatabaseCore(SqlConnection sqlCon)
+		{
+#warning 未完成
+		}
+
 		//增
 		//删
 		//查
