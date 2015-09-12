@@ -1,8 +1,8 @@
 ﻿//******************************************************************************************
 //
-// 文件名(File Name): WeatherData.cs
+// 文件名(File Name): DatabaseCore.cs
 // 
-// 描述(Description): 包含类SHUPV.Database.WeatherData的定义
+// 描述(Description): 包含类SHUPV.Database.DatabaseCore的定义
 //
 // 引用(Using):
 //
@@ -17,17 +17,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
-using SHUPV.Database.Connection;
 
-namespace SHUPV.Database
+namespace SHUPV.Database.Core
 {
 	/// <summary>
-	/// 天气信息数据接口,访问数据库并提供用户索要的数据
+	/// 核心数据库接口,提供对目标数据库操作的基本操作
 	/// </summary>
-	public class WeatherData
+	public class DatabaseCore
 	{
-		
+		//增
+		//删
+		//查
+		//改
 	}
 }
