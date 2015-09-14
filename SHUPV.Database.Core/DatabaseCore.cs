@@ -41,46 +41,50 @@ namespace SHUPV.Database.Core
             _sqlCon = sqlCon;
 		}
 
-		///<summary>
-        ///添加函数
-        ///</summary>
-        ///<param name="tableID"> 表名字</param>
-        ///<param name="terms">修改的列和目标值的键值对</param>
-        public bool InsertData(string tableID,Dictionary<string,string> terms)
+		/// <summary>
+		/// 插入函数
+		/// </summary>
+		/// <param name="tableName">表名字</param>
+        /// <param name="terms">修改的列和目标值的键值对</param>
+		/// <returns></returns>
+        public bool InsertData(string tableName,Dictionary<string,string> terms)
         {
 #warning 未完成
             return true;  //返回插入结果
         }
-
-        ///<summary>
-        ///删除函数
-        ///</summary>
-        ///<param name="tableID"> 表名字</param>
-        ///<param name="queryTerms">删除条件where键值对</param>
-        public bool DeleteData(string tableID, Dictionary<string, string> queryTerms)
+        
+        /// <summary>
+        /// 删除函数
+        /// </summary>
+        /// <param name="tableName">表名字</param>
+        /// <param name="queryTerms">删除条件where键值对</param>
+        /// <returns></returns>
+        public bool DeleteData(string tableName, Dictionary<string, string> queryTerms)
         {
 #warning 未完成
             return true;  //返回删除结果
         }
 
-        ///<summary>
-        ///修改函数
-        ///</summary>
-        ///<param name="tableID">表名字 </param>
-        ///<param name="updateTerms">更新列值的键值对</param>
-        ///<param name="queryTerms">查询条件where键值对</param>
-        public bool UpdateData(string tableID,Dictionary<string,string> updateTerms ,Dictionary<string,string> queryTerms)
+        /// <summary>
+        /// 修改函数
+        /// </summary>
+        /// <param name="tableName">表名字</param>
+        /// <param name="updateTerms">更新列值的键值对</param>
+        /// <param name="queryTerms">查询条件where键值对</param>
+        /// <returns></returns>
+        public bool UpdateData(string tableName,Dictionary<string,string> updateTerms ,Dictionary<string,string> queryTerms)
         {
 #warning 未完成
             return true;  //返回更新结果
         }
 
-        ///<summary>
-        ///删除函数
-        ///</summary>
-        ///<param name="tableID"> 表名字</param>
-        ///<param name="queryTerms">查询条件where键值对</param>
-        public DataSet SelectData(string tableID,Dictionary<string,string> queryTerms)
+        /// <summary>
+        /// 查询函数
+        /// </summary>
+        /// <param name="tableName">表名字</param>
+        /// <param name="queryTerms">查询条件where键值对</param>
+        /// <returns></returns>
+        public DataSet SelectData(string tableName,Dictionary<string,string> queryTerms)
         {
 #warning 未完成
             return new DataSet();//返回查询数据
