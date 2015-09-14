@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace SHUPV.Database.Core
 {
@@ -35,14 +36,54 @@ namespace SHUPV.Database.Core
 		/// 构造函数
 		/// </summary>
 		/// <param name="sqlCon">已打开的数据库连接</param>
-		public DatabaseCore(SqlConnection sqlCon)
+		public DatabaseCore(SqlConnection sqlCon) 
 		{
-#warning 未完成
+            _sqlCon = sqlCon;
 		}
 
-		//增
-		//删
-		//查
-		//改
+		///<summary>
+        ///添加函数
+        ///</summary>
+        ///<param name="tableID"> 表名字</param>
+        ///<param name="terms">修改的列和目标值的键值对</param>
+        public bool InsertData(string tableID,Dictionary<string,string> terms)
+        {
+#warning 未完成
+            return true;  //返回插入结果
+        }
+
+        ///<summary>
+        ///删除函数
+        ///</summary>
+        ///<param name="tableID"> 表名字</param>
+        ///<param name="queryTerms">删除条件where键值对</param>
+        public bool DeleteData(string tableID, Dictionary<string, string> queryTerms)
+        {
+#warning 未完成
+            return true;  //返回删除结果
+        }
+
+        ///<summary>
+        ///修改函数
+        ///</summary>
+        ///<param name="tableID">表名字 </param>
+        ///<param name="updateTerms">更新列值的键值对</param>
+        ///<param name="queryTerms">查询条件where键值对</param>
+        public bool UpdateData(string tableID,Dictionary<string,string> updateTerms ,Dictionary<string,string> queryTerms)
+        {
+#warning 未完成
+            return true;  //返回更新结果
+        }
+
+        ///<summary>
+        ///删除函数
+        ///</summary>
+        ///<param name="tableID"> 表名字</param>
+        ///<param name="queryTerms">查询条件where键值对</param>
+        public DataSet SelectData(string tableID,Dictionary<string,string> queryTerms)
+        {
+#warning 未完成
+            return new DataSet();//返回查询数据
+        }
 	}
 }
