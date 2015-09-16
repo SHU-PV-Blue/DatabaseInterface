@@ -88,6 +88,93 @@ namespace SHUPV.Database
 			--_objectCount;														//对象计数器减一
 		}
 
-		//各种功能函数
+		/// <summary>
+		/// 获得所有类别名
+		/// </summary>
+		/// <returns>所有类别名</returns>
+		public List<string>GetPartNames()
+		{
+#warning 未完成
+			return new List<string>();
+		}
+
+		/// <summary>
+		/// 获得属于类别partName的所有数据表名
+		/// </summary>
+		/// <param name="partName">类别名</param>
+		/// <returns>属于类别partName的所有数据表名</returns>
+		public List<string>GetTableNames(string partName)
+		{
+#warning 未完成
+			return new List<string>();
+		}
+
+		/// <summary>
+		/// 获得属于类别tableName的所有数据行名
+		/// </summary>
+		/// <param name="latitude">纬度</param>
+		/// <param name="longitude">经度</param>
+		/// <param name="partName">类别名</param>
+		/// <param name="tableName">表名</param>
+		/// <returns>属于类别tableName的所有数据行名</returns>
+		public List<string> GetLineNames(double latitude, double longitude, string partName, string tableName)
+		{
+#warning 未完成
+			//这个函数先不急着写
+			//之所以有经纬度参数是因为我发现同一张表，不同的经纬度，数据行可能不一样，有的多有的少
+			return new List<string>();
+		}
+
+		/// <summary>
+		/// 获得指定的气象数据表数据
+		/// </summary>
+		/// <param name="latitude">纬度</param>
+		/// <param name="longitude">经度</param>
+		/// <param name="partName">类别名</param>
+		/// <param name="tableName">表名</param>
+		/// <returns>指定的气象数据表数据</returns>
+		public DataSet GetTableData(double latitude, double longitude, string partName, string tableName)
+		{
+#warning 未完成
+			return new DataSet();
+		}
+
+		/// <summary>
+		/// 获得指定的气象数据行数据
+		/// </summary>
+		/// <param name="latitude">纬度</param>
+		/// <param name="longitude">经度</param>
+		/// <param name="partName">类别名</param>
+		/// <param name="tableName">表名</param>
+		/// <param name="lineName">行名</param>
+		/// <returns>指定的气象数据行数据</returns>
+		public List<string> GetLineData(double latitude, double longitude, string partName, string tableName, string lineName)
+		{
+#warning 未完成
+			//这个函数先不急着写
+			return new List<string>();
+		}
+
+		/// <summary>
+		/// 获得数据库里最接近的坐标点
+		/// </summary>
+		/// <param name="inputLatitude">输入的纬度</param>
+		/// <param name="inputLongitude">输入的经度</param>
+		/// <param name="nearestLatitude">数据库里最接近的纬度</param>
+		/// <param name="nearestLongitude">数据库里最接近的经度</param>
+		/// <returns>是否获得成功</returns>
+		public bool GetNearestCoordinate(double inputLatitude, double inputLongitude, out double nearestLatitude, out double nearestLongitude)
+		{
+			nearestLatitude = double.NaN;
+			nearestLongitude = double.NaN;
+			if (inputLatitude < -90 || inputLatitude > 90)
+				return false;
+			if (inputLongitude < -90 || inputLongitude > 90)
+				return false;
+			nearestLatitude = Math.Truncate(inputLatitude) + 0.5;
+			nearestLongitude = Math.Truncate(inputLongitude) + 0.5;
+			return true;
+		}
+
 	}
 }
