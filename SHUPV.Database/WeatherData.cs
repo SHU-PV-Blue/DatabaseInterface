@@ -165,14 +165,14 @@ namespace SHUPV.Database
 		/// <returns>是否获得成功</returns>
 		private bool GetNearestCoordinate(double inputLatitude, double inputLongitude, out double nearestLatitude, out double nearestLongitude)
 		{
-#warning 未完成
-			//数据库里的数据是 -179.5, -178.5, ... -0.5, 0, 0.5, ... 178.5, 179.5
-			//以及 -89.5, -88.5, ... -0.5, 0, 0.5, ... 88.5, 89.5
-			//换算结果要和NASA网站上换算的结果一致
-			//如果输入超范围返回false
-			//这个函数仅仅是类里其他函数调用
-			nearestLatitude = 0;
-			nearestLongitude = 0;
+			nearestLatitude = double.NaN;
+			nearestLongitude = double.NaN;
+			if (inputLatitude < -90 || inputLatitude > 90)
+				return false;
+			if (inputLongitude < -90 || inputLongitude > 90)
+				return false;
+			nearestLatitude = Math.Truncate(inputLatitude) + 0.5;
+			nearestLongitude = Math.Truncate(inputLongitude) + 0.5;
 			return true;
 		}
 
