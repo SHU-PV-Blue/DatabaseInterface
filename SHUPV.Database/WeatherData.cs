@@ -163,7 +163,7 @@ namespace SHUPV.Database
 		/// <param name="nearestLatitude">数据库里最接近的纬度</param>
 		/// <param name="nearestLongitude">数据库里最接近的经度</param>
 		/// <returns>是否获得成功</returns>
-		private bool GetNearestCoordinate(double inputLatitude, double inputLongitude, out double nearestLatitude, out double nearestLongitude)
+		public bool GetNearestCoordinate(double inputLatitude, double inputLongitude, out double nearestLatitude, out double nearestLongitude)
 		{
 			nearestLatitude = double.NaN;
 			nearestLongitude = double.NaN;
