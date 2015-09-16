@@ -12,18 +12,10 @@ namespace Test_SHUPV.Database
 		static void Main(string[] args)
 		{
 			WeatherData wd = new WeatherData();
-			double a,b;
-			wd.GetNearestCoordinate(90, 180, out a, out b);
-			Console.WriteLine(a + "   " + b);
-
-			wd.GetNearestCoordinate(0, 0, out a, out b);
-			Console.WriteLine(a + "   " + b);
-
-			wd.GetNearestCoordinate(-90, -180, out a, out b);
-			Console.WriteLine(a + "   " + b);
-
-			wd.GetNearestCoordinate(12, 34, out a, out b);
-			Console.WriteLine(a + "   " + b);
+			Console.WriteLine("获得表名：");
+			List<string> ls = wd.GetPartNames();
+			foreach (string str in ls)
+				Console.WriteLine(str);
 		}
 	}
 

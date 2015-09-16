@@ -87,7 +87,23 @@ namespace SHUPV.Database.Core
         public DataTable SelectData(string tableName, Dictionary<string,string> queryTerms)
         {
 #warning 未完成
-			return new DataTable();//返回查询数据
+			string queryString = "select * from " + tableName;
+			if (queryTerms != null && queryTerms.Count != 0)
+			{
+				queryString += " where";
+				bool isFirst = true;
+				foreach(KeyValuePair<string,string> kvp in queryTerms)
+				{
+					if(!isFirst)
+						queryString += " and";
+					isFirst =false;
+					queryString += " [" + kvp.Key + "] = \'" + kvp.Value + " \'";
+				}
+			}
+			SqlDataAdapter sda = new SqlDataAdapter(queryString, _sqlCon);
+			DataTable result = new DataTable(tableName);
+			sda.Fill(result);
+			return result;//返回查询数据
         }
 	}
 }

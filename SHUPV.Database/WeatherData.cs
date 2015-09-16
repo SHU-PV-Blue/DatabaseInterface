@@ -55,11 +55,6 @@ namespace SHUPV.Database
 				{
 					throw ex;													//重抛
 				}
-				finally
-				{
-					_sqlCon.Close();											//关闭数据库
-					_sqlCon.Dispose();											//释放数据库
-				}
 			}
 			++_objectCount;														//对象计数器加一
 		}
