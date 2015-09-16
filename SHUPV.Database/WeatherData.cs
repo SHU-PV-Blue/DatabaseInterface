@@ -94,8 +94,14 @@ namespace SHUPV.Database
 		/// <returns>所有类别名</returns>
 		public List<string>GetPartNames()
 		{
-#warning 未完成
-			return new List<string>();
+			DatabaseCore dc = new DatabaseCore(_sqlCon);
+			DataTable dt = dc.SelectData("dbo.Parts", null);
+			List<string> result = new List<string>();
+			foreach (DataRow dr in dt.Rows)
+			{
+				result.Add(dr["PartName"].ToString());
+			}
+			return result;
 		}
 
 		/// <summary>

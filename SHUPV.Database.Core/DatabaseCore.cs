@@ -84,10 +84,10 @@ namespace SHUPV.Database.Core
         /// <param name="tableName">表名字</param>
         /// <param name="queryTerms">查询条件where键值对</param>
         /// <returns>DataSet 查询数据</returns>
-        public DataSet SelectData(string tableName, Dictionary<string,string> queryTerms)
+        public DataTable SelectData(string tableName, Dictionary<string,string> queryTerms)
         {
 #warning 未完成
-            return new DataSet();//返回查询数据
+			return new DataTable();//返回查询数据
         }
 	}
 }
