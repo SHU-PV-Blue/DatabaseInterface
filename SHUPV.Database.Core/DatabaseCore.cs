@@ -97,7 +97,7 @@ namespace SHUPV.Database.Core
 					if(!isFirst)
 						queryString += " and";
 					isFirst =false;
-					queryString += " [" + kvp.Key + "] = \'" + kvp.Value + " \'";
+					queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
 				}
 			}
 			SqlDataAdapter sda = new SqlDataAdapter(queryString, _sqlCon);
