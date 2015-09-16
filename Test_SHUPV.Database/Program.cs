@@ -13,8 +13,18 @@ namespace Test_SHUPV.Database
 		{
 			WeatherData wd = new WeatherData();
 			double a,b;
-			wd.GetNearestCoordinate(1, 1 ,out a, out b);
-			Console.WriteLine( a + "   " + b);
+			wd.GetNearestCoordinate(90, 180, out a, out b);
+			Console.WriteLine(a + "   " + b);
+
+			wd.GetNearestCoordinate(0, 0, out a, out b);
+			Console.WriteLine(a + "   " + b);
+
+			wd.GetNearestCoordinate(-90, -180, out a, out b);
+			Console.WriteLine(a + "   " + b);
+
+			wd.GetNearestCoordinate(12, 34, out a, out b);
+			Console.WriteLine(a + "   " + b);
 		}
 	}
+
 }

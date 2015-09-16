@@ -169,10 +169,19 @@ namespace SHUPV.Database
 			nearestLongitude = double.NaN;
 			if (inputLatitude < -90 || inputLatitude > 90)
 				return false;
-			if (inputLongitude < -90 || inputLongitude > 90)
+			if (inputLongitude < -180 || inputLongitude > 180)
 				return false;
-			nearestLatitude = Math.Truncate(inputLatitude) + 0.5;
-			nearestLongitude = Math.Truncate(inputLongitude) + 0.5;
+
+			if (inputLatitude == 90)
+				nearestLatitude = 89.5;
+			else
+				nearestLatitude = Math.Truncate(inputLatitude) + 0.5;
+
+			if (inputLongitude == 180)
+				nearestLongitude = 179.5;
+			else
+				nearestLongitude = Math.Truncate(inputLongitude) + 0.5;
+				
 			return true;
 		}
 
