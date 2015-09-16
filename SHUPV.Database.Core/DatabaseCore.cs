@@ -46,8 +46,8 @@ namespace SHUPV.Database.Core
 		/// </summary>
 		/// <param name="tableName">表名字</param>
         /// <param name="terms">修改的列和目标值的键值对</param>
-		/// <returns></returns>
-        public bool InsertData(string tableName,Dictionary<string,string> terms)
+		/// <returns>bool 插入结果</returns>
+        public bool InsertData(string tableName, Dictionary<string,string> terms)
         {
 #warning 未完成
             return true;  //返回插入结果
@@ -58,7 +58,7 @@ namespace SHUPV.Database.Core
         /// </summary>
         /// <param name="tableName">表名字</param>
         /// <param name="queryTerms">删除条件where键值对</param>
-        /// <returns></returns>
+        /// <returns>bool 插入结果</returns>
         public bool DeleteData(string tableName, Dictionary<string, string> queryTerms)
         {
 #warning 未完成
@@ -71,8 +71,8 @@ namespace SHUPV.Database.Core
         /// <param name="tableName">表名字</param>
         /// <param name="updateTerms">更新列值的键值对</param>
         /// <param name="queryTerms">查询条件where键值对</param>
-        /// <returns></returns>
-        public bool UpdateData(string tableName,Dictionary<string,string> updateTerms ,Dictionary<string,string> queryTerms)
+        /// <returns>bool 插入结果</returns>
+        public bool UpdateData(string tableName, Dictionary<string,string> updateTerms, Dictionary<string,string> queryTerms)
         {
 #warning 未完成
             return true;  //返回更新结果
@@ -83,8 +83,8 @@ namespace SHUPV.Database.Core
         /// </summary>
         /// <param name="tableName">表名字</param>
         /// <param name="queryTerms">查询条件where键值对</param>
-        /// <returns></returns>
-        public DataSet SelectData(string tableName,Dictionary<string,string> queryTerms)
+        /// <returns>DataSet 查询数据</returns>
+        public DataSet SelectData(string tableName, Dictionary<string,string> queryTerms)
         {
 #warning 未完成
             return new DataSet();//返回查询数据
