@@ -103,7 +103,7 @@ namespace SHUPV.Database.Core
                 foreach (KeyValuePair<string, string> kvp in queryTerms)
                 {
                     if (!isFirst)
-                        queryString += " and ";
+                        queryString += " and";
                     isFirst = false;
                     queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
                 }
@@ -130,7 +130,41 @@ namespace SHUPV.Database.Core
         public bool UpdateData(string tableName, Dictionary<string,string> updateTerms, Dictionary<string,string> queryTerms)
         {
 #warning 未完成
-            return true;  //返回更新结果
+            string queryString = "update " + tableName;
+            if (updateTerms != null && updateTerms.Count != 0)
+            {
+                queryString += " set";
+                bool isFirst = true;
+                foreach (KeyValuePair<string, string> kvp in updateTerms)
+                {
+                    if (!isFirst)
+                        queryString += ",";
+                    isFirst = false;
+                    queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
+                }
+            }
+            if (queryTerms != null && queryTerms.Count != 0)
+            {
+                queryString += " where";
+                bool isFirst = true;
+                foreach (KeyValuePair<string, string> kvp in queryTerms)
+                {
+                    if (!isFirst)
+                        queryString += " and";
+                    isFirst = false;
+                    queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
+                }
+            }
+            try
+            {
+                SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
+                cursor.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
