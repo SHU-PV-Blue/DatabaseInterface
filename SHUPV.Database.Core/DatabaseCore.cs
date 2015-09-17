@@ -83,6 +83,7 @@ namespace SHUPV.Database.Core
             {
                 return false;
             }
+
         }
         
         /// <summary>
@@ -118,7 +119,6 @@ namespace SHUPV.Database.Core
         /// <returns>DataSet 查询数据</returns>
         public DataTable SelectData(string tableName, Dictionary<string,string> queryTerms)
         {
-#warning 未完成
 			string queryString = "select * from " + tableName;
 			if (queryTerms != null && queryTerms.Count != 0)
 			{
