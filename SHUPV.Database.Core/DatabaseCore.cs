@@ -50,7 +50,39 @@ namespace SHUPV.Database.Core
         public bool InsertData(string tableName, Dictionary<string,string> terms)
         {
 #warning 未完成
-            return true;  //返回插入结果
+            string queryString = "insert into " + tableName;
+            if (terms != null && terms.Count != 0)
+            {
+                queryString += " (";
+                bool isFirst = true;
+                foreach (KeyValuePair<string, string> kvp in terms)
+                {
+                    if (!isFirst)
+                        queryString += ", ";
+                    isFirst = false;
+                    queryString += kvp.Key;
+                }
+                queryString += ") values (";
+                isFirst = true;
+                foreach (KeyValuePair<string, string> kvp in terms)
+                {
+                    if (!isFirst)
+                        queryString += ", ";
+                    isFirst = false;
+                    queryString += "\'" + kvp.Value + "\'";
+                }
+                queryString += ")";
+            }
+            try
+            {
+                SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
+                cursor.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         
         /// <summary>
