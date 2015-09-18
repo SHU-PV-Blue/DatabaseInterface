@@ -134,10 +134,10 @@ namespace SHUPV.Database
 		/// <param name="partName">类别名</param>
 		/// <param name="tableName">表名</param>
 		/// <returns>指定的气象数据表数据</returns>
-		public DataSet GetTableData(double latitude, double longitude, string partName, string tableName)
+		public DataTable GetTableData(double latitude, double longitude, string partName, string tableName)
 		{
 #warning 未完成
-			return new DataSet();
+			return new DataTable();
 		}
 
 		/// <summary>
