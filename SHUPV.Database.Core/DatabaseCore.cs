@@ -46,10 +46,9 @@ namespace SHUPV.Database.Core
 		/// </summary>
 		/// <param name="tableName">表名字</param>
         /// <param name="terms">修改的列和目标值的键值对</param>
-		/// <returns>bool 插入结果</returns>
+		/// <returns>插入是否成功</returns>
         public bool InsertData(string tableName, Dictionary<string,string> terms)
         {
-#warning 未完成
             string queryString = "insert into " + tableName;
             if (terms != null && terms.Count != 0)
             {
@@ -91,10 +90,9 @@ namespace SHUPV.Database.Core
         /// </summary>
         /// <param name="tableName">表名字</param>
         /// <param name="queryTerms">删除条件where键值对</param>
-        /// <returns>bool 插入结果</returns>
+        /// <returns>删除是否成功</returns>
         public bool DeleteData(string tableName, Dictionary<string, string> queryTerms)
         {
-#warning 未完成
             string queryString = "delete from " + tableName;
             if (queryTerms != null && queryTerms.Count != 0)
             {
@@ -124,12 +122,11 @@ namespace SHUPV.Database.Core
         /// 修改函数
         /// </summary>
         /// <param name="tableName">表名字</param>
-        /// <param name="updateTerms">更新列值的键值对</param>
+        /// <param name="updateTerms">更新的列和值的键值对</param>
         /// <param name="queryTerms">查询条件where键值对</param>
-        /// <returns>bool 插入结果</returns>
+        /// <returns>更新是否成功</returns>
         public bool UpdateData(string tableName, Dictionary<string,string> updateTerms, Dictionary<string,string> queryTerms)
         {
-#warning 未完成
             string queryString = "update " + tableName;
             if (updateTerms != null && updateTerms.Count != 0)
             {
@@ -172,7 +169,7 @@ namespace SHUPV.Database.Core
         /// </summary>
         /// <param name="tableName">表名字</param>
         /// <param name="queryTerms">查询条件where键值对</param>
-        /// <returns>DataSet 查询数据</returns>
+        /// <returns>查询返回的数据</returns>
         public DataTable SelectData(string tableName, Dictionary<string,string> queryTerms)
         {
 			string queryString = "select * from " + tableName;
