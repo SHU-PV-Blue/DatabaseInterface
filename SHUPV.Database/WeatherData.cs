@@ -87,7 +87,7 @@ namespace SHUPV.Database
 		/// 获得所有类别名
 		/// </summary>
 		/// <returns>所有类别名</returns>
-		public List<string>GetPartNames()
+		public List<string> GetPartNames()
 		{
 			DatabaseCore dc = new DatabaseCore(_sqlCon);
 			DataTable dt = dc.SelectData("dbo.Parts", null);
@@ -104,10 +104,24 @@ namespace SHUPV.Database
 		/// </summary>
 		/// <param name="partName">类别名</param>
 		/// <returns>属于类别partName的所有数据表名</returns>
-		public List<string>GetTableNames(string partName)
+		public List<string> GetTableNames(string partName)
 		{
-#warning 未完成
-			return new List<string>();
+            DatabaseCore dc = new DatabaseCore(_sqlCon);
+            Dictionary<string,string> dict = new Dictionary<string,string>();
+            dict.Add("PartName",partName);
+            DataTable dt = dc.SelectData("dbo.Parts",dict);
+            string partID = dt.Rows[0]["PartID"].ToString();
+
+            dict.Clear();
+            dict.Add("PartID", partID);
+            dt = dc.SelectData("dbo.Tables", dict);
+            List<string> result = new List<string>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                result.Add(dr["TableName"].ToString());
+            }
+
+			return result;
 		}
 
 		/// <summary>
