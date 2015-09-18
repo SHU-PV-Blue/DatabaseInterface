@@ -163,6 +163,8 @@ namespace SHUPV.Database
 
 			queryTerms.Clear();
 			queryTerms.Add("TableID", tableID);
+			queryTerms.Add("Lat", nearestLatitude.ToString());
+			queryTerms.Add("Lon", nearestLongitude.ToString());
 			dt = dc.SelectData("dbo.Lines", queryTerms);
 			if (dt.Rows.Count <= 0)
 				throw new Exception("the result of select is abnormal");
