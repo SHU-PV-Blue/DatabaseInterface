@@ -12,13 +12,13 @@ namespace Test_SHUPV.Database
 	{
 		static void Main(string[] args)
 		{
-			TestGetTableData();
+			TestGetTableNames();
 		}
 		
 		static void TestGetPartNames()
 		{
 			WeatherData wd = new WeatherData();
-			Console.WriteLine("获得表名：");
+			Console.WriteLine("获得类名：");
 			List<string> ls = wd.GetPartNames();
 			foreach (string str in ls)
 				Console.WriteLine(str);
@@ -38,8 +38,16 @@ namespace Test_SHUPV.Database
 				for(int i = 0; i < dt.Columns.Count; ++i)
 					Console.Write(dr[i] + " ");
 				Console.WriteLine();
-			}
-				
+			}	
+		}
+
+		static void  TestGetTableNames()
+		{
+			WeatherData wd = new WeatherData();
+			Console.WriteLine("获得表名：");
+			List<string> ls = wd.GetTableNames("Parameters for Sizing and Pointing of Solar Panels and for Solar Thermal Applications");
+			foreach (string str in ls)
+				Console.WriteLine(str);
 		}
 	}
 
