@@ -12,7 +12,9 @@ namespace Test_SHUPV.Database
 	{
 		static void Main(string[] args)
 		{
+			TestGetPartNames();
 			TestGetTableNames();
+			TestGetTableData();
 		}
 		
 		static void TestGetPartNames()
@@ -28,7 +30,7 @@ namespace Test_SHUPV.Database
 		{
 			WeatherData wd = new WeatherData();
 			Console.WriteLine("获得数据：");
-			DataTable dt = wd.GetTableData(10,10,
+			DataTable dt = wd.GetTableData(90,180,
 				"Parameters for Sizing Battery or other Energy-storage Systems",
 				"Equivalent Number Of NO-SUN Or BLACK Days");
 			dt.Columns.Remove("LineID");
