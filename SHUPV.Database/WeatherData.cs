@@ -137,7 +137,38 @@ namespace SHUPV.Database
 		public DataTable GetTableData(double latitude, double longitude, string partName, string tableName)
 		{
 #warning 未完成
-			return new DataTable();
+			double nearestLatitude;
+			double nearestLongitude;
+			GetNearestCoordinate(latitude, longitude, out nearestLatitude, out nearestLongitude);
+			DatabaseCore dc = new DatabaseCore(_sqlCon);
+
+			string partID;
+			string tableID;
+			DataTable dataTable;
+
+			Dictionary<string, string> queryTerms = new Dictionary<string, string>();
+			queryTerms.Add("PartName", partName);
+			DataTable dt = dc.SelectData("dbo.Parts", queryTerms);
+			if (dt.Rows.Count != 1)
+				throw new Exception("the result of select is abnormal");
+			partID = dt.Rows[0]["PartID"].ToString();
+
+			queryTerms.Clear();
+			queryTerms.Add("PartID", partID);
+			queryTerms.Add("TableName", tableName);
+			dt = dc.SelectData("dbo.Tables", queryTerms);
+			if (dt.Rows.Count != 1)
+				throw new Exception("the result of select is abnormal");
+			tableID = dt.Rows[0]["TableID"].ToString();
+
+			queryTerms.Clear();
+			queryTerms.Add("TableID", tableID);
+			dt = dc.SelectData("dbo.Lines", queryTerms);
+			if (dt.Rows.Count <= 0)
+				throw new Exception("the result of select is abnormal");
+			dataTable = dt;
+
+			return dataTable;
 		}
 
 		/// <summary>
