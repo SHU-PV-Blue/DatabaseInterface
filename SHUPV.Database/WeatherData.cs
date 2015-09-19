@@ -150,6 +150,7 @@ namespace SHUPV.Database
 		/// <returns>指定的气象数据表数据</returns>
 		public DataTable GetTableData(double latitude, double longitude, string partName, string tableName)
 		{
+#warning 未完成
 			double nearestLatitude;
 			double nearestLongitude;
 			GetNearestCoordinate(latitude, longitude, out nearestLatitude, out nearestLongitude);
@@ -178,7 +179,7 @@ namespace SHUPV.Database
 			queryTerms.Add("TableID", tableID);
 			queryTerms.Add("Lat", nearestLatitude.ToString());
 			queryTerms.Add("Lon", nearestLongitude.ToString());
-			dt = dc.SelectData("dbo.Linesold", queryTerms);
+			dt = dc.SelectData("dbo.Lines", queryTerms);
 			if (dt.Rows.Count <= 0)
 				throw new Exception("the result of select is abnormal");
 			dataTable = dt;
