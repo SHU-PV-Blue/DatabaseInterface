@@ -141,6 +141,18 @@ namespace SHUPV.Database
 		}
 
 		/// <summary>
+		/// 获得指定的气象数据表的数据计量单位
+		/// </summary>
+		/// <param name="partName">类别名</param>
+		/// <param name="tableName">表名</param>
+		/// <returns>指定的气象数据表的数据计量单位</returns>
+		public string GetTableUnit(string partName, string tableName)
+		{
+#warning 未完成
+			return "";
+		}
+
+		/// <summary>
 		/// 获得指定的气象数据表数据
 		/// </summary>
 		/// <param name="latitude">纬度</param>
@@ -150,7 +162,6 @@ namespace SHUPV.Database
 		/// <returns>指定的气象数据表数据</returns>
 		public DataTable GetTableData(double latitude, double longitude, string partName, string tableName)
 		{
-#warning 未完成
 			double nearestLatitude;
 			double nearestLongitude;
 			GetNearestCoordinate(latitude, longitude, out nearestLatitude, out nearestLongitude);
