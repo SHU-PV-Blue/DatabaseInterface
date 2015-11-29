@@ -19,6 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.OleDb;
 
 namespace SHUPV.Database.Core
 {
@@ -28,17 +29,43 @@ namespace SHUPV.Database.Core
 	public class DatabaseCore
 	{
 		/// <summary>
-		/// 数据库连接，仅是对外部给的数据库连接的引用，不负责维护
+		/// SQL server数据库连接，仅是对外部给的数据库连接的引用，不负责维护
 		/// </summary>
 		SqlConnection _sqlCon;
 
 		/// <summary>
-		/// 构造函数
+		/// ACCESS数据库连接，仅是对外部给的数据库连接的引用，不负责维护
+		/// </summary>
+		OleDbConnection _oleCon;
+
+		/// <summary>
+		/// 数据库连接类型枚举
+		/// </summary>
+		enum ConnectionType { SQL, OLE };
+
+		/// <summary>
+		/// 数据库连接类型
+		/// </summary>
+		ConnectionType _connectionType;
+
+		/// <summary>
+		/// SQL Sever数据库连接构造函数
 		/// </summary>
 		/// <param name="sqlCon">已打开的数据库连接</param>
 		public DatabaseCore(SqlConnection sqlCon) 
 		{
             _sqlCon = sqlCon;
+			_connectionType = ConnectionType.SQL;
+		}
+
+		/// <summary>
+		/// Access数据库连接构造函数
+		/// </summary>
+		/// <param name="oleCon">已打开的数据库连接</param>
+		public DatabaseCore(OleDbConnection oleCon)
+		{
+			_oleCon = oleCon;
+			_connectionType = ConnectionType.OLE;
 		}
 
 		/// <summary>
@@ -74,9 +101,22 @@ namespace SHUPV.Database.Core
             }
             try
             {
-                SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
-                cursor.ExecuteNonQuery();
-                return true;
+				switch(_connectionType)
+				{
+					case ConnectionType.SQL:
+						{
+							SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
+							cursor.ExecuteNonQuery();
+							break;
+						}
+					case ConnectionType.OLE:
+						{
+							OleDbCommand cursor = new OleDbCommand(queryString, _oleCon);
+							cursor.ExecuteNonQuery();
+							break;
+						}
+				}
+				return true;
             }
             catch
             {
@@ -108,9 +148,22 @@ namespace SHUPV.Database.Core
             }
             try
             {
-                SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
-                cursor.ExecuteNonQuery();
-                return true;
+				switch (_connectionType)
+				{
+					case ConnectionType.SQL:
+						{
+							SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
+							cursor.ExecuteNonQuery();
+							break;
+						}
+					case ConnectionType.OLE:
+						{
+							OleDbCommand cursor = new OleDbCommand(queryString, _oleCon);
+							cursor.ExecuteNonQuery();
+							break;
+						}
+				}
+				return true;
             }
             catch
             {
@@ -154,9 +207,22 @@ namespace SHUPV.Database.Core
             }
             try
             {
-                SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
-                cursor.ExecuteNonQuery();
-                return true;
+				switch (_connectionType)
+				{
+					case ConnectionType.SQL:
+						{
+							SqlCommand cursor = new SqlCommand(queryString, _sqlCon);
+							cursor.ExecuteNonQuery();
+							break;
+						}
+					case ConnectionType.OLE:
+						{
+							OleDbCommand cursor = new OleDbCommand(queryString, _oleCon);
+							cursor.ExecuteNonQuery();
+							break;
+						}
+				}
+				return true;
             }
             catch
             {
@@ -185,9 +251,22 @@ namespace SHUPV.Database.Core
 					queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
 				}
 			}
-			SqlDataAdapter sda = new SqlDataAdapter(queryString, _sqlCon);
 			DataTable result = new DataTable(tableName);
-			sda.Fill(result);
+			switch (_connectionType)
+			{
+				case ConnectionType.SQL:
+					{
+						SqlDataAdapter sda = new SqlDataAdapter(queryString, _sqlCon);
+						sda.Fill(result);
+						break;
+					}
+				case ConnectionType.OLE:
+					{
+						OleDbDataAdapter odda = new OleDbDataAdapter(queryString, _oleCon);
+						odda.Fill(result);
+						break;
+					}
+			}
 			return result;//返回查询数据
         }
 	}
