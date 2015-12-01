@@ -86,7 +86,7 @@ namespace SHUPV.Database.Core
                     if (!isFirst)
                         queryString += ", ";
                     isFirst = false;
-                    queryString += kvp.Key;
+                    queryString += "[" + kvp.Key + "]";
                 }
                 queryString += ") values (";
                 isFirst = true;
