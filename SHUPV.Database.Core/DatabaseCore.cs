@@ -95,7 +95,7 @@ namespace SHUPV.Database.Core
                     if (!isFirst)
                         queryString += ", ";
                     isFirst = false;
-                    queryString += "\'" + kvp.Value + "\'";
+                    queryString += kvp.Value;
                 }
                 queryString += ")";
             }
@@ -143,7 +143,7 @@ namespace SHUPV.Database.Core
                     if (!isFirst)
                         queryString += " and";
                     isFirst = false;
-                    queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
+                    queryString += " [" + kvp.Key + "] = " + kvp.Value;
                 }
             }
             try
@@ -190,7 +190,7 @@ namespace SHUPV.Database.Core
                     if (!isFirst)
                         queryString += ",";
                     isFirst = false;
-                    queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
+                    queryString += " [" + kvp.Key + "] = " + kvp.Value;
                 }
             }
             if (queryTerms != null && queryTerms.Count != 0)
@@ -202,7 +202,7 @@ namespace SHUPV.Database.Core
                     if (!isFirst)
                         queryString += " and";
                     isFirst = false;
-                    queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
+                    queryString += " [" + kvp.Key + "] = " + kvp.Value;
                 }
             }
             try
@@ -248,7 +248,7 @@ namespace SHUPV.Database.Core
 					if(!isFirst)
 						queryString += " and";
 					isFirst =false;
-					queryString += " [" + kvp.Key + "] = \'" + kvp.Value + "\'";
+					queryString += " [" + kvp.Key + "] = " + kvp.Value;
 				}
 			}
 			DataTable result = new DataTable(tableName);
